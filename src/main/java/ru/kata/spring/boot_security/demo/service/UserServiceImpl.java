@@ -54,7 +54,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userRepository.deleteById(id);
     }
 
-
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
@@ -65,44 +67,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         return user;
     }
-
-
-//    private final UserDao userDao;
-//
-//    @Autowired
-//    public UserServiceImpl(UserDao userDao) {
-//        System.out.println("!!!");
-//        this.userDao = userDao;
-//    }
-//
-////    @Transactional(readOnly = true)
-//    @Override
-//    public List<User> showAll() {
-//        System.out.println(userDao.showAll());
-//        return userDao.showAll();
-//    }
-//
-//    @Transactional
-//    @Override
-//    public void save(User user) {
-//        userDao.save(user);
-//    }
-//
-////    @Transactional(readOnly = true)
-//    @Override
-//    public User showUser(long id) {
-//        return userDao.showUser(id);
-//    }
-//    @Transactional
-//    @Override
-//    public void update(long id, User updatedUser) {
-//        userDao.update(id, updatedUser);
-//    }
-//
-//
-//    @Transactional
-//    @Override
-//    public void delete(long id) {userDao.delete(id);}
 
 
 }

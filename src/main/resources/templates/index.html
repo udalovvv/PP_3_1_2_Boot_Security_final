@@ -8,61 +8,62 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
 </head>
+
 <body>
 
 
+<!--<nav class="navbar navbar-expand-md bg-dark navbar-dark">-->
+<!--    &lt;!&ndash; Brand &ndash;&gt;-->
+<!--    <a class="navbar-brand" href="#">Student Management System</a>-->
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <!-- Brand -->
-    <a class="navbar-brand" href="#">Student Management System</a>
+<!--    &lt;!&ndash; Toggler/collapsibe Button &ndash;&gt;-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
 
-    <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/user}">Student Management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/admin}">Teacher Management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/logout}">LogOut</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<!--    &lt;!&ndash; Navbar links &ndash;&gt;-->
+<!--    <div class="collapse navbar-collapse" id="collapsibleNavbar">-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{/user}">Student Management</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{/admin}">Teacher Management</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{/logout}">LogOut</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
 
 
+<div th:insert="header :: copy"></div>
 
-<div class ="container">
 
-    <table class = "table table-striped table-bordered">
-        <thead class = "table-dark">
+<div class="container">
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
         <tr>
             <th> User First Name</th>
             <th> User Last Name</th>
-            <th> User Email </th>
-            <th> Actions </th>
+            <th> User Email</th>
+            <th> Actions</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each = "user: ${user}">
-            <td th:text = "${user.firstName}"></td>
-            <td th:text = "${user.lastName}"></td>
-            <td th:text = "${user.email}"></td>
+        <tr th:each="user: ${user}">
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.email}"></td>
             <td>
-                <a th:href = "@{/admin/{id}/edit(id=${user.id})}"
-                   class = "btn btn-primary">Update</a>
+                <a th:href="@{/admin/{id}/edit(id=${user.id})}"
+                   class="btn btn-primary">Update</a>
 
-                <a th:href = "@{/admin/{id}(id=${user.id})}"
-                   class = "btn btn-danger">Delete</a>
+                <a th:href="@{/admin/{id}(id=${user.id})}"
+                   class="btn btn-danger">Delete</a>
 
             </td>
         </tr>
@@ -70,9 +71,9 @@
 
     </table>
 
-    <div class = "row">
-        <div class = "col-lg-3">
-            <a th:href = "@{/admin/new}" class = "btn btn-primary btn-sm mb-3"> Add User</a>
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href="@{/admin/new}" class="btn btn-primary btn-sm mb-3"> Add User</a>
         </div>
     </div>
 
